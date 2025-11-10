@@ -22,15 +22,15 @@ jobs:
         uses: actions/setup-node@v4
         with: 
           node-version: 20
-      # - name: Install backend dependencies
-      #   run: | 
-      #     cd server
-      #     npm install
+      - name: Install backend dependencies
+        run: | 
+          cd server
+          npm install
       
-      # - name: Run backend tests
-      #   run: | 
-      #     cd server
-      #     npm test || echo "No backend tests defined"
+      - name: Run backend tests
+        run: | 
+          cd server
+          npm test || echo "No backend tests defined"
       
       - name: Run frontend tests
         run: | 
