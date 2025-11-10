@@ -53,8 +53,8 @@ jobs:
       
       - name: login to Dockerhub 
         run: | 
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username=${{ secrets.DOCKERHUB_USERNAME }}
+          password=${{ secrets.DOCKERHUB_TOKEN }}
           echo "$password" | docker login -u "$username" --password-stdin
 
 
