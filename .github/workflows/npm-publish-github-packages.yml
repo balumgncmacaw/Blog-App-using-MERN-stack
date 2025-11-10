@@ -142,7 +142,7 @@ jobs:
         
   regression-prod:
     runs-on: ubuntu-latest
-    needs: deploy-uat
+    needs: deploy-prod
     steps:
       - name: Run regression tests on DEV
         run: |
