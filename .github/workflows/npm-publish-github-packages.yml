@@ -59,12 +59,18 @@ jobs:
 
 
       
-      - name: Build & Push Docker image
+      - name: Build & Push Docker image server
         uses: docker/build-push-action@v6
         with: 
           context: server 
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/blogapp:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/blogapp-server:latest
+      - name: Build & Push Docker image client
+        uses: docker/build-push-action@v6
+        with: 
+          context: client 
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/blogapp-client:latest
   
   scan-image: 
     runs-on: ubuntu-latest
