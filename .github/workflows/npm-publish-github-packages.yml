@@ -39,7 +39,7 @@ jobs:
       - name: build frontend
         run: | 
           cd client
-          ls -ltrh
+          ls -ltrha
           npm run build
       
   build-image: 
