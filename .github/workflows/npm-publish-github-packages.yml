@@ -6,41 +6,41 @@ on:
       - main
 
 jobs:
-  # build-test:
-  #   runs-on: ubuntu-latest
-  #   services: 
-  #     mongo: 
-  #       image: mongo:6
-  #       ports: 
-  #         - 27017:27017
-  #   env: 
-  #     MONGO_URI: mongodb://127.0.0.1:27017/BlogApp
-  #   steps: 
-  #     - name: checkout repo
-  #       uses: actions/checkout@v4
-  #     - name: Setup Node.js
-  #       uses: actions/setup-node@v4
-  #       with: 
-  #         node-version: 20
-  #     - name: Install backend dependencies
-  #       run: | 
-  #         cd server
-  #         npm install
+  build-test:
+    runs-on: ubuntu-latest
+    services: 
+      mongo: 
+        image: mongo:6
+        ports: 
+          - 27017:27017
+    env: 
+      MONGO_URI: mongodb://127.0.0.1:27017/BlogApp
+    steps: 
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with: 
+          node-version: 20
+      - name: Install backend dependencies
+        run: | 
+          cd server
+          npm install
       
-  #     - name: Run backend tests
-  #       run: | 
-  #         cd server
-  #         npm test || echo "No backend tests defined"
+      - name: Run backend tests
+        run: | 
+          cd server
+          npm test || echo "No backend tests defined"
       
-  #     - name: Run frontend tests
-  #       run: | 
-  #         cd client
-  #         npm install
-  #     - name: build frontend
-  #       run: | 
-  #         cd client
-  #         ls -ltrha
-  #         npm run build
+      - name: Run frontend tests
+        run: | 
+          cd client
+          npm install
+      - name: build frontend
+        run: | 
+          cd client
+          ls -ltrha
+          npm run build
       
   build-image: 
     runs-on: ubuntu-latest
